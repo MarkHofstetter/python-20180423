@@ -8,6 +8,8 @@ Ausgabe: Uni
 
 Eingabe: Ivan
 Ausgabe: n/a
+
++ zusatz: den ältesten/jüngsten aus der liste
 '''
 
 import pprint
@@ -30,8 +32,37 @@ participents = [
 participents.append(['Michala', 1975, ['VS', 'Gym', 'Uni']])
 participents.sort()
 
+
+# participents.sort(key=lambda p: p[1])
 pprint.pprint(participents)
+
+n, y = zip(*participents)
+
+print(y)
+
+exit()
+
+years_of_birth = [p[1] for p in participents]
+names          = [p[0] for p in participents]
+
+
+
+pprint.pprint(years_of_birth)
+
+min_year = min(years_of_birth)
+print(min_year)
+
+index = years_of_birth.index(min_year)
+print(index)
+print(participents[index])
+exit()
+
+name = input('Namen eingeben: ')
 
 
 for participent in participents:
-    print(participent[0])
+    if name == participent[0]:
+        try:
+            print(participent[2][-1])
+        except IndexError:
+            print('n/a')
