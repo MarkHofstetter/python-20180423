@@ -1,5 +1,8 @@
 [
+  "dictionary.py",
+  "test_dictionary.py",
   "test_dictionary.py::test_answer",
   "test_dictionary.py::test_answer2",
-  "test_dictionary.py::test_not_found"
+  "test_dictionary.py::test_not_found",
+  "use_dict.py"
 ]
