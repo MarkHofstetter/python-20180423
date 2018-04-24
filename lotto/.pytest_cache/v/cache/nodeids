@@ -1,0 +1,5 @@
+[
+  "test_lotto.py::test_man1",
+  "test_lotto.py::test_man_bad",
+  "test_lotto.py::test_random_sample"
+]
