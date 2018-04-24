@@ -26,7 +26,9 @@ def main():
 
                
 def translate(user_word, eng2ger):
-    ger2eng = dict((v,k) for k,v in eng2ger.items())    
+    #ger2eng = dict((v,k) for k,v in eng2ger.items())    
+    ger2eng = dict( zip(eng2ger.values(), eng2ger.keys()) )
+
     translation = None
     if user_word in eng2ger:
         translation = eng2ger[user_word]
