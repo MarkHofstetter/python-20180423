@@ -15,9 +15,14 @@ sms.recipient = 'Alice'
 print("Sender: ", sms.sender)
 sms.send()
 '''
+user = User(id = 123)
+user.read()
 
-email = Email(sender = 'Mark')
+user.send_message(content = 'bla')
+
+if user.preferred_message == 'email':
+    email = Email(recipient = user.email)
 
 email.content = 'bla'
-print(email.content)
+
 email.send()
