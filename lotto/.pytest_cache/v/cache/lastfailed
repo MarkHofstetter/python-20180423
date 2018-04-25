@@ -1,3 +1,4 @@
 {
+  "test_lotto.py::test_man1": true,
   "test_lotto.py::test_man_bad": true
 }

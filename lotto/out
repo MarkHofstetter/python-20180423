@@ -1,0 +1,42 @@
+============================= test session starts =============================
+platform win32 -- Python 3.6.5, pytest-3.5.0, py-1.5.3, pluggy-0.6.0 -- c:\users\hofstetterm\appdata\local\programs\python\python36-32\python.exe
+cachedir: .pytest_cache
+rootdir: C:\python\lotto, inifile:
+plugins: timeit-0.3.0, flake8-1.0.0, cov-2.5.1
+collecting ... collected 1 item
+
+test_lotto.py::test_man1 {7: 10, 16: 10, 24: 10, 26: 10, 30: 10, 33: 10}
+FAILED
+
+================================== FAILURES ===================================
+__________________________________ test_man1 __________________________________
+
+    def test_man1():
+>       data = collect_data(lotto.lotto_man())
+
+test_lotto.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+func = [7, 16, 30, 24, 26, 33]
+
+    def collect_data(func):
+        distribution = {}
+        for i in range(number_of_iterations):
+            numbers = func
+            check_unique = dict((k,1) for k in numbers)
+            assert len(check_unique) == 6
+            assert min(numbers) > 0
+            assert max(numbers) < 46
+            for number in numbers:
+                if number not in distribution:
+                    distribution[number] = 1
+                else:
+                    distribution[number] += 1
+    
+        pprint(distribution)
+>       assert len(distribution) == 45
+E       assert 6 == 45
+E        +  where 6 = len({7: 10, 16: 10, 24: 10, 26: 10, ...})
+
+test_lotto.py:21: AssertionError
+Computing stats ...========================== 1 failed in 0.15 seconds ===========================
