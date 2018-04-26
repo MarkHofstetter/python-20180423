@@ -15,7 +15,6 @@ for energy in energies:
     
 '''
 
-
 energy = session.query(Energy).filter_by(name='FluxCompensator').first()
 print(energy.name)
 for price in energy.prices:

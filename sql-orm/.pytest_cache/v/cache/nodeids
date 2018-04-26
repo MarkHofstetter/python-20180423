@@ -1,0 +1,4 @@
+[
+  "test_model.py::test_db_create",
+  "test_model.py::test_insert"
+]

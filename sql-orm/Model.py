@@ -2,8 +2,26 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
  
 Base = declarative_base()
+ 
+class DB():
+    engine = None
+    db_name = None
+    session = None
+    sq = None    
+    
+    def __init__(self, db_name = 'sqlite:///sqlalchemy_energy.db'):
+        self.db_name = db_name
+        self.engine = create_engine(self.db_name)  
+        Base.metadata.bind = self.engine
+        DBSession = sessionmaker(bind=self.engine)
+        self.session = DBSession()
+        self.sq = self.session.query
+        
+    def create(self):
+        Base.metadata.create_all(self.engine)
  
 class Energy(Base):
     __tablename__ = 'energy'
@@ -32,8 +50,8 @@ class Price(Base):
  
 def main():
     print("creating database")
-    engine = create_engine('sqlite:///sqlalchemy_energy.db')
-    Base.metadata.create_all(engine)
+    db = DB()
+    db.create()
     
 if __name__ == '__main__':
     main()
