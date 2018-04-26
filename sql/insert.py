@@ -15,3 +15,4 @@ for name, birth_year in teilnehmer.items():
     conn.execute("insert into student(name, birth_year) values (?,?)", (name, birth_year))
     
 conn.commit()
+    
