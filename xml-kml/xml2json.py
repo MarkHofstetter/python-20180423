@@ -11,9 +11,19 @@ tree = lxml.etree.parse('25.04.2018_16_06_29.kml')
 
 ns = {'gx' : 'http://www.google.com/kml/ext/2.2'}
 root = tree.getroot()
-for coord in tree.findall('.//*gx:coord', ns):
-    print(coord.text)
+for track in tree.findall('.//*gx:Track/gx:coord', ns):
+    ## rint(track)
+    ## for coord in track.findall('.//*gx:coord', ns):
+    print(track.text)
+    #for i, coord in enumerate(track): # .findall('.//*gx:coord', ns):
+    #    if i % 2 != 0:
+    #        track.remove(coord)
+    #    print(i)
+    #    pprint(coord)
  
+ 
+
+tree.write('out.xml') 
 # print(json.dumps(xmljson.badgerfish.data(tree)))
 '''
 
